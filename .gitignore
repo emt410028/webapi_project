@@ -1,0 +1,13 @@
+# Node.js
+reactapp/node_modules/
+reactapp/dist/
+
+# Python
+backend/__pycache__/
+backend/.venv/
+backend/.mypy_cache/
+backend/.pytest_cache/
+
+# Env
+.env
+*.env
