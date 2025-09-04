@@ -4,7 +4,7 @@ React + Tailwind (前端) · FastAPI + MongoDB (後端)
 
 ## 開發環境
 - Frontend: `cd reactapp && npm i && npm run dev`
-- Backend:  `cd backend && pip install -r requirements.txt && uvicorn main:app --reload`
+- Backend:  `pip install -r requirements.txt && cd backend && uvicorn main:app --reload`
 
 ## 環境變數
 
