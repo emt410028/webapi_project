@@ -1,10 +1,14 @@
-import { Link, NavLink } from "react-router-dom";
-
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "./AuthContext";
 
 
 export default function Navbar() {
-  const token = localStorage.getItem("access_token");
-  const logout = () => { localStorage.removeItem("access_token"); location.href = "/login"; };
+  const { token, setToken } = useAuth();
+  const navigate = useNavigate();
+  const logout = () => {
+    setToken(null); // 會自動清 localStorage
+    navigate("/login");
+  };
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-blue-600/95 backdrop-blur supports-[backdrop-filter]:bg-blue-600/80">
