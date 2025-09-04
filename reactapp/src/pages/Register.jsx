@@ -16,16 +16,23 @@ export default function Register() {
     useForm({ resolver: zodResolver(schema) });
 
     const onSubmit = async ({ username, email, password }) => {
-    try {
-        const res = await fetch("http://127.0.0.1:8000/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, email, password }),
+      try {
+        const payload = { username, password };
+        if (email) payload.email = email; // Email 可選填
+
+        const res = await fetch("http://127.0.0.1:8000/users/", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
         });
+
         if (!res.ok) throw new Error((await res.json()).detail || "註冊失敗");
+
         alert("註冊成功，請登入");
         navigate("/login");
-    } catch (e) { alert(e.message); }
+      } catch (e) {
+        alert(e.message);
+      }
     };
 
   return (

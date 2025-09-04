@@ -16,16 +16,20 @@ export default function Login() {
 
   const onSubmit = async (data) => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/auth/login", {
+      const res = await fetch("http://127.0.0.1:8000/sessions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ username: data.username, password: data.password }),
       });
+
       if (!res.ok) throw new Error("登入失敗");
       const json = await res.json();
+
       localStorage.setItem("access_token", json.access_token);
       navigate("/");
-    } catch (e) { alert(e.message); }
+    } catch (e) {
+      alert(e.message);
+    }
   };
 
   return (
