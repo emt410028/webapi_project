@@ -20,7 +20,7 @@ export default function Login() {
   // 表單送出時執行的函式
   const onSubmit = async (data) => {
     // 呼叫後端 API 進行登入
-    const res = await fetch("http://127.0.0.1:8000/sessions", {
+    const res = await fetch("http://127.0.0.1:8000/api/sessions", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username: data.username, password: data.password }),
@@ -29,13 +29,15 @@ export default function Login() {
     // 登入失敗時顯示錯誤訊息
     if (!res.ok) {
       const errorData = await res.json();
-      alert(errorData.detail || "登入失敗");
+      alert("登入失敗");
       return;
     }
     // 登入成功，取得 access_token
     const json = await res.json();
-
-    setToken(json.access_token); // 更新 Context，Navbar 會即時 re-render
+    // Django SimpleJWT 預設回傳 { access, refresh }
+    localStorage.setItem("access_token", json.access);
+    localStorage.setItem("refresh_token", json.refresh);
+    setToken(json.access);
     navigate("/"); // 導向首頁
   };
 

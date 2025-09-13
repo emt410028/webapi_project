@@ -1,16 +1,18 @@
 # webapi_project
 
-React + Tailwind (前端) · FastAPI + MongoDB (後端) 
+React + Tailwind (前端) · Django (後端) 
 
 ## 開發環境
 - Frontend: `cd reactapp && npm i && npm run dev`
-- Backend:  `pip install -r requirements.txt && cd backend && uvicorn main:app --reload`
+- Backend:  `pip install -r requirements.txt && cd backend && python manage runserver`
 
 ## 環境變數
 
 
 
 ## API
-- `POST /users` 註冊
-- `POST /sessions` 登入
-- `GET /users/me` 取得目前使用者
+註冊： POST /api/users
+
+登入： POST /api/sessions
+
+刷新： POST /api/sessions/refresh

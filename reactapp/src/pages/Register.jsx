@@ -20,16 +20,26 @@ export default function Register() {
         const payload = { username, password };
         if (email) payload.email = email; // Email 可選填
 
-        const res = await fetch("http://127.0.0.1:8000/users/", {
+        const res = await fetch("http://127.0.0.1:8000/api/users", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         });
 
-        if (!res.ok) throw new Error((await res.json()).detail || "註冊失敗");
-
-        alert("註冊成功，請登入");
-        navigate("/login");
+        if (!res.ok) {
+          const error = await res.json();
+          if (error.username) {
+            alert(error.username[0]);
+          } else if (error.email) {
+            alert(error.email[0]);
+          } else {
+            alert("註冊失敗");
+          }
+        } else {
+          alert("註冊成功！");
+          navigate("/login");
+        }
+        
       } catch (e) {
         alert(e.message);
       }
