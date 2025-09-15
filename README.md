@@ -39,7 +39,7 @@
 
 **前端**
 
-cd frontend<br>
+cd reactapp<br>
 npm install<br>
 npm run dev<br>
 
