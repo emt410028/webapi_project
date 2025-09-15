@@ -17,9 +17,7 @@
 
 ## 🛠️ 系統架構
 
-[React 前端] --JSON--> [Django REST API] --DB--> [資料庫]
-                          │
-                          └--HTTP--> [Ollama LLM]
+![](picture/系統架構.png)
 
 - **React (Vite + TailwindCSS)**：登入、註冊、聊天 UI  
 - **Django (DRF + SimpleJWT)**：RESTful API + JWT 驗證  
