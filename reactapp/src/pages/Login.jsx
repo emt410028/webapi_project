@@ -26,6 +26,8 @@ export default function Login() {
       body: JSON.stringify({ username: data.username, password: data.password }),
     });
 
+    
+
     // 登入失敗時顯示錯誤訊息
     if (!res.ok) {
       const errorData = await res.json();
