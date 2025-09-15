@@ -33,22 +33,23 @@
 3. 前端將 `access token` 存入 localStorage  
 4. 呼叫需要驗證的 API（如 `/api/chat/`）時，帶上 Header：  
 
+---
 
 ## 環境建置
 
--**前端**
+**前端**
 
-cd frontend
-npm install
-npm run dev
+cd frontend<br>
+npm install<br>
+npm run dev<br>
 
--**後端**
+**後端**
 
-pip install -r requirements.txt
-cd backend
-python manage.py migrate
-python manage.py runserver
+pip install -r requirements.txt<br>
+cd backend<br>
+python manage.py migrate<br>
+python manage.py runserver<br>
 
--**Ollama 啟動**
+**Ollama 啟動**
 
 ollama run llama3.1:8b
