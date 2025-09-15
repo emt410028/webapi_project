@@ -9,6 +9,7 @@ import Layout from "./pages/Layout";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import { AuthProvider } from "./pages/AuthContext";
+import Chat from "./pages/Chat.jsx";
 
 
 
@@ -23,15 +24,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/register" element={<Register />} />
 
           {/* 受保護頁面：把元素包進 RequireAuth */}
-          <Route
-            index
-            element={
-              <RequireAuth>
-                <Home />
-              </RequireAuth>
-            }
-          />
-          
+          <Route index  element={<RequireAuth> <Home /> </RequireAuth>}/>
+          <Route path="/chat"  element={<RequireAuth> <Chat /> </RequireAuth>}/>
           {/* 其他受保護路由同理... */}
           {/* 捕捉所有未定義的路由 */}
           <Route path="*" element={<NotFound />} /> 

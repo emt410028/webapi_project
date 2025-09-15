@@ -17,7 +17,10 @@ export default function Navbar() {
         <div className="flex items-center gap-4 text-white/90">
         
           {token ? (
-            <button onClick={logout} className="rounded-lg bg-white/10 px-3 py-1.5 hover:bg-white/20">登出</button>
+            <>
+              <button onClick={logout} className="rounded-lg bg-white/10 px-3 py-1.5 hover:bg-white/20">登出</button>
+              <NavLink to="/chat" className="hover:text-white">聊天</NavLink>
+            </>  
           ) : (
             <>
               <NavLink to="/login" className="hover:text-white">登入</NavLink>
