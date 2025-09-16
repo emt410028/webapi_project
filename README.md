@@ -47,6 +47,7 @@ npm run dev<br>
 
 pip install -r requirements.txt<br>
 cd backend<br>
+python manage.py makemigrations<br>
 python manage.py migrate<br>
 python manage.py runserver<br>
 
