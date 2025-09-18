@@ -20,7 +20,7 @@ export default function Login() {
   // 表單送出時執行的函式
   const onSubmit = async (data) => {
     // 呼叫後端 API 進行登入
-    const res = await fetch("http://127.0.0.1:8000/api/sessions", {
+    const res = await fetch("http://localhost:8000/api/sessions", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username: data.username, password: data.password }),
